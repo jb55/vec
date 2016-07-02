@@ -145,9 +145,9 @@ doIfNonEmpty pvec action = do
 
 
 instance Arbitrary Cmd' where
-  arbitrary = do Positive n <- arbitrary
+  arbitrary = do NonNegative n <- arbitrary
                  ys <- arbitrary
-                 Positive ix <- arbitrary
+                 NonNegative ix <- arbitrary
                  x <- arbitrary
                  elements [ Push n, Init, Clear, Compact, Deinit, Extend ys
                           , First, Insert ix x, Last, Pop, Reserve n, Remove n
